@@ -1,0 +1,13 @@
+<launch>
+  <include file="$(find moveit_allegro_config)/launch/planning_context.launch">
+    <arg name="load_robot_description" value="true"/>
+  </include>
+
+  <node name="allegro_get_ik"
+        pkg="moveit_allegro_test"
+        type="allegro_get_ik"
+        respawn="false" output="screen">
+    <rosparam command="load"
+              file="$(find moveit_allegro_config)/config/kinematics.yaml"/>
+  </node>
+</launch>
